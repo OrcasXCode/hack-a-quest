@@ -28,14 +28,18 @@ export function Header(){
         <li>
           <NavLink to="/" onClick={()=>{closeMenu();handleClick('home')}} className={active === 'home' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/about"  onClick={()=>{closeMenu();handleClick('about')}} className={active === 'about' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>About</NavLink>
-        </li>
+       
         <li>
           <NavLink to="/rules"  onClick={()=>{closeMenu();handleClick('rules')}} className={active === 'rules' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>Rules</NavLink>
         </li>
         <li>
+          <NavLink to="/resources"  onClick={()=>{closeMenu();handleClick('resources')}} className={active === 'resources' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>resources</NavLink>
+        </li>
+        <li>
           <NavLink to="/warground"  onClick={()=>{closeMenu();handleClick('warground')}} className={active === 'warground' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>Warground</NavLink>
+        </li>
+        <li>
+          <NavLink to="/scoreboard"  onClick={()=>{closeMenu();handleClick('scoreboard')}} className={active === 'scoreboard' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>Scoreboard</NavLink>
         </li>
       </ul>
     <ul className={`${menuOpen ? "open" : ""}`}>

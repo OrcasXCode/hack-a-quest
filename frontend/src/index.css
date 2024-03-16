@@ -159,3 +159,30 @@
         transform: skewX(10deg) skewY(-10deg);
     }
   }
+
+  .btn {
+    border: 1px solid;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 20px;
+    font-weight: 300;
+    width: 100%;
+    border-radius: 1px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-two {
+    color: #ff0000; /* Default color for button two */
+}
+
+#btn-two:hover {
+    color: white;
+    border: 0;
+    background-color: #ee0000; /* Hover color for button two */
+    -webkit-box-shadow: 10px 10px 99px 6px rgb(241, 18, 18);
+    -moz-box-shadow: 10px 10px 99px 6px rgb(255, 0, 25);
+    box-shadow: 10px 10px 99px 6px rgb(245, 0, 0);
+}
