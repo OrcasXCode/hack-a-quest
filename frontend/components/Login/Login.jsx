@@ -5,7 +5,7 @@ import mask from "../../src/assets/mask.png"
 
 export function Login() {
   return (
-    <section  style={{fontFamily:'hack'}} className="  h-screen bg-black">
+    <section  style={{fontFamily:'hack'}} className=" relative h-screen bg-black">
        
       <div className=" grid grid-cols-1 lg:grid-cols-2">
         <img

@@ -4,16 +4,16 @@ import success from "../../src/assets/bgglitch.mp4";
 
 const faq = [
   {
-    "ans": "1. For practice CTF team registration is diabled."
+    "ans": "1. Team registration for practice CTF sessions is currently disabled to streamline the main event.Participants can still join as individuals and compete independently."
   },
   {
-    "ans": "2. Don't share the flags with anyone."
+    "ans": "2. Sharing flags or answers with anyone, including teammates, is strictly prohibited .Collaboration within registered teams is encouraged, but sharing solutions with non-participants is not allowed."
   },
   {
-    "ans": "3. There will be Four types of Challendes in different Categories Easy, Medium, Hard,Insane."
+    "ans": "3. Challenges will be categorized into Easy, Medium, Hard, and Insane difficulty levels. Participants can select challenges based on their skill level, with higher difficulty challenges offering greater rewards."
   },
   {
-    "ans": "4. For technical doubts reffer to CTF Administration team."
+    "ans": "4. Participants can seek technical assistance from the CTF Administration team for any doubts or questions related to the challenges.The Administration team will provide prompt support to ensure a smooth experience for all participants."
   }
 ];
 

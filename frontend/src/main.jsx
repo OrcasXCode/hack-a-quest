@@ -9,6 +9,7 @@ import { About } from '../components/About/About.jsx'
 import { Rules } from '../components/Rules/Rules.jsx'
 import { Warground } from '../components/Warground/Warground.jsx'
 import { Login } from '../components/Login/Login.jsx'
+import { Resources } from '../components/Resources/Resources.jsx'
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
+      },
+      {
+        path:"/resources",
+        element:<Resources></Resources>
       }
     ]
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
 import { useState } from 'react'
 import dyc from "../../src/assets/dyc.png"
+import lpu from "../../src/assets/lpu.png"
 import "./Header.css";
 
 export function Header(){
@@ -16,15 +17,17 @@ export function Header(){
 
   return (
      <nav className='flex font-bold w-full h-[70px] justify-between ' style={{fontFamily:'hack'}}>
-        <Link to="/" className="">
+        <Link to="/" className="flex items-center justify-center">
             <img src={dyc} className="mr-3 h-[70px]" alt="Logo" />
+            <span className='m-5 '>X</span>
+            <img src={lpu}  className="mr-3 h-[50px]" alt="Logo"></img>
         </Link>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul  className={`${menuOpen ? "open" : ""}`}>
+      <ul  className={`${menuOpen ? "open" : ""} lg:-ml-40`}>
         <li>
           <NavLink to="/" onClick={()=>{closeMenu();handleClick('home')}} className={active === 'home' ? 'text-[#ed1c43]':'hover:text-[#b8b8b8] hover:scale-110  transition-transform duration-300 ease-in-out'}>Home</NavLink>
         </li>
