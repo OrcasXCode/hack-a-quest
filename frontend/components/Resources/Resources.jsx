@@ -16,7 +16,7 @@ export function Resources(props) {
 
     return (
         <>
-            <div className='relative max-w-9xl'  ref={containerRef}  style={{ minHeight: '100vh' }}>
+            <div className='relative max-w-9xl h-100%'  ref={containerRef}  style={{ minHeight: '100vh' }}>
                  <video autoPlay muted loop className="absolute inset-0 object-cover z-0 w-full h-full">
                     <source src={success} type="video/mp4" />
                 </video>

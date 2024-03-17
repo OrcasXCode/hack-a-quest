@@ -10,6 +10,7 @@ import { Rules } from '../components/Rules/Rules.jsx'
 import { Warground } from '../components/Warground/Warground.jsx'
 import { Login } from '../components/Login/Login.jsx'
 import { Resources } from '../components/Resources/Resources.jsx'
+import { Scoreboard } from '../components/Scoreboard/Scoreboard.jsx'
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path:"/resources",
         element:<Resources></Resources>
+      },
+      {
+        path:"/scoreboard",
+        element:<Scoreboard></Scoreboard>
       }
     ]
   }
