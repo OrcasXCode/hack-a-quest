@@ -45,38 +45,81 @@ router.post("/login", async (req, res) => {
 
 router.get("/challenges", async (req, res) => {
   try {
-    const challenges = await Challenge.create(
+    const challengeData = [
       {
         title: "Mirage",
-        description: "Hello this is a demo ctf",
+        description: "100",
         correctAnswer: "example_flag",
       },
       {
         title: "Anime",
-        description: "Hello this is a demo ctf",
+        description: "200",
         correctAnswer: "example_flag",
       },
       {
         title: "Brain Damage",
-        description: "Hello this is a demo ctf",
+        description: "200",
         correctAnswer: "example_flag",
       },
       {
         title: "Rodger",
-        description: "Hello this is a demo ctf",
+        description: "500",
         correctAnswer: "example_flag",
-      }
-    );
+      },
+      {
+        title: "Cyber Assault",
+        description: "300",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Code Breaker",
+        description: "400",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Network Intrusion",
+        description: "600",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Encryption Challenge",
+        description: "700",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Web Security Challenge",
+        description: "800",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Rev Engineering Challenge",
+        description: "900",
+        correctAnswer: "example_flag",
+      },
+      {
+        title: "Forensics Challenge",
+        description: "1000",
+        correctAnswer: "example_flag",
+      },
+    ];
 
-    const filterdChallenges = await Challenge.find({}, "title description");
-    if (!challenges) {
-      return res.status(400).json({
-        success: false,
-        msg: "There are no ctf",
-      });
+    for (const data of challengeData) {
+      const existingChallenge = await Challenge.findOne({ title: data.title });
+
+      if (existingChallenge) {
+        await Challenge.findOneAndUpdate(
+          { title: data.title },
+          { description: data.description }
+        );
+      } else {
+        await Challenge.create(data);
+      }
     }
+
+    const filteredChallenges = await Challenge.find({}, "title description");
+
     return res.status(200).json({
-      challenges: filterdChallenges,
+      challenges: filteredChallenges,
     });
   } catch (error) {
     console.log(error);
