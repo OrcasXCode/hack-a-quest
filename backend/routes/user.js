@@ -135,15 +135,19 @@ router.get("/getleaderboard", async (req, res) => {
   try {
     const teams = await Team.find({}, "teamName points");
 
-    const scoreboardPromises = teams.map(async (team) => {
-      await Scoreboard.create({ teamName: team.teamName, points: team.points });
+    const updatePromises = teams.map(async (team) => {
+      await Scoreboard.findOneAndUpdate(
+        { teamName: team.teamName },
+        { points: team.points },
+        { upsert: true }
+      );
     });
 
-    await Promise.all(scoreboardPromises);
+    await Promise.all(updatePromises);
 
     return res.status(200).json({
       success: true,
-      msg: "Leaderboard initialized successfully",
+      msg: "Leaderboard updated successfully",
       teams: teams.map((team) => ({
         teamName: team.teamName,
         points: team.points,

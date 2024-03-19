@@ -59,7 +59,7 @@ export function Warground(props) {
                             <div className='p-2 border w-[200px] mt-[150px]  text-center mb-5 rounded-full'>Reverse Engineering</div>
                             <div className='text-white  text-center flex flex-wrap gap-6 max-w-7xl'>
                                 {challenges.map((challenge, index) => (
-                                    <div key={index} className="w-[300px] rounded-md border">
+                                    <div key={index} className="w-[300px] border rounded-md">
                                         <div className="p-4">
                                             <h1 className="inline-flex text-white items-center text-[20px] font-semibold">
                                                 {challenge.title}
