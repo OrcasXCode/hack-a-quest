@@ -33,7 +33,7 @@ export default function Modal({ title, points, closeModal }) {
       <div className="read-btn">
         <button onClick={toggleModal} className="btn-modal">
             Read 
-            <ArrowRight className='arrow ml-2' size={16} /> {/* Add the arrow icon */}
+            <ArrowRight className='arrow ml-2' size={16} /> 
         </button>
       </div>
 
@@ -50,7 +50,7 @@ export default function Modal({ title, points, closeModal }) {
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi optio voluptates tempore laudantium 
              necessitatibus amet quas quibusdam quisquam molestias, incidunt autem quod cupiditate mollitia iste perspiciatis harum minima vero suscipit!
             </p>
-            <button className="download-button">Download</button>
+            <button className="download-button"><a href="demo.zip" download="demo.zip">Download</a></button>
             <div className="flag-submit">
               <input
                 type="text"
