@@ -5,6 +5,7 @@ const ChallengeSchema = new mongoose.Schema(
     title: String,
     description: String,
     correctAnswer: String,
+    solved: Boolean,
   },
   {
     timestamps: true,

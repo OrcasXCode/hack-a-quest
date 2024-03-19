@@ -22,6 +22,18 @@ const ParticipantSchema = new mongoose.Schema({
   },
 });
 
+const ChallengeSchema = new mongoose.Schema(
+  {
+    title: String,
+    description: String,
+    correctAnswer: String,
+    solved: Boolean,
+  },
+  {
+    timestamps: true,
+  }
+);
+
 const TeamSchema = new mongoose.Schema(
   {
     teamName: {
@@ -56,6 +68,7 @@ const TeamSchema = new mongoose.Schema(
       default: 0,
     },
     members: [ParticipantSchema],
+    challenges: [ChallengeSchema],
   },
   { timestamps: true }
 );

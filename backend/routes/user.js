@@ -51,56 +51,67 @@ router.get("/challenges", async (req, res) => {
         title: "Mirage",
         description: "100",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Anime",
         description: "200",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Brain Damage",
         description: "200",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Rodger",
         description: "500",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Cyber Assault",
         description: "300",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Code Breaker",
         description: "400",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Network Intrusion",
         description: "600",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Encryption Challenge",
         description: "700",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Web Security Challenge",
         description: "800",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Rev Engineering Challenge",
         description: "900",
         correctAnswer: "example_flag",
+        solved: false,
       },
       {
         title: "Forensics Challenge",
         description: "1000",
         correctAnswer: "example_flag",
+        solved: false,
       },
     ];
 
@@ -110,14 +121,21 @@ router.get("/challenges", async (req, res) => {
       if (existingChallenge) {
         await Challenge.findOneAndUpdate(
           { title: data.title },
-          { description: data.description }
+          { description: data.description, solved: data.solved }
         );
       } else {
         await Challenge.create(data);
       }
     }
 
-    const filteredChallenges = await Challenge.find({}, "title description");
+    const challenges = await Challenge.find({});
+
+    await Team.updateMany({}, { $set: { challenges: challenges } });
+
+    const filteredChallenges = await Challenge.find(
+      {},
+      "title description solved"
+    );
 
     return res.status(200).json({
       challenges: filteredChallenges,
@@ -152,6 +170,62 @@ router.get("/getleaderboard", async (req, res) => {
         teamName: team.teamName,
         points: team.points,
       })),
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      msg: "Internal Server Error",
+    });
+  }
+});
+
+router.post("/validflag", async (req, res) => {
+  try {
+    const { teamId, title, flag } = req.body;
+
+    const team = await Team.findOne({ teamId: teamId });
+
+    if (!team) {
+      return res.status(404).json({
+        success: false,
+        msg: "Team not found",
+      });
+    }
+
+    const challenge = await Challenge.findOne({ title: title });
+
+    if (!challenge) {
+      return res.status(404).json({
+        success: false,
+        msg: "Challenge not found",
+      });
+    }
+
+    if (challenge.correctAnswer !== flag) {
+      return res.status(400).json({
+        success: false,
+        msg: "Incorrect flag",
+      });
+    }
+
+    // If the flag is correct, update the points in the team schema
+    team.points = parseInt(team.points) + parseInt(challenge.description);
+    await team.save();
+
+    // Mark the challenge as solved for the team
+    const index = team.challenges.findIndex(
+      (c) => c.toString() === challenge._id.toString()
+    );
+
+    if (index !== -1) {
+      team.challenges[index].solved = true;
+      await team.save();
+    }
+
+    return res.status(200).json({
+      success: true,
+      msg: "Flag verified, team points updated, and challenge marked as solved",
     });
   } catch (error) {
     console.log(error);

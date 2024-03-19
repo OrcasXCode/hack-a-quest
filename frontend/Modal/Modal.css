@@ -97,6 +97,7 @@ body.active-modal {
 .flag-submit {
     display: flex;
     align-items: center; 
+    color: #000000;
 }
 
 .flag {

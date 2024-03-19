@@ -4,21 +4,18 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Modal({ title, points, closeModal }) {
   const [modal, setModal] = useState(false);
-  const [inputValue, setInputValue] = useState(""); // State to store input value
+  const [inputValue, setInputValue] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value); // Update input value state
+    setInputValue(e.target.value); 
   };
 
   const handleSubmit = () => {
-    // Handle submission here
-    // For example, you can check if inputValue matches the flag
-    // If it matches, perform some action
-    // Otherwise, display an error message
+
     console.log("Submitted value:", inputValue);
   };
 

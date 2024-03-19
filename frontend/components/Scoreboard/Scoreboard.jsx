@@ -9,7 +9,7 @@ export function Scoreboard(props) {
       id: 'apexchart-example'
     },
     xaxis: {
-      categories: [] // Initialize categories as an empty array
+      categories: [] 
     },
     colors: ['#FF0000'], 
     dataLabels: {
@@ -23,7 +23,7 @@ export function Scoreboard(props) {
 
   const [series, setSeries] = useState([{
     name: 'series-1',
-    data: [] // Initialize data as an empty array
+    data: []
   }]);
 
    const chartOptions = {
@@ -42,17 +42,17 @@ export function Scoreboard(props) {
            const response = await axios.get("http://localhost:3000/user/getleaderboard");
            const wargroups = response.data;
            const teamNames = wargroups.teams.map(team => team.teamName);
-           const points = wargroups.teams.map(team => parseInt(team.points)); // Convert points to integers
+           const points = wargroups.teams.map(team => parseInt(team.points)); 
            setOptions(prevOptions => ({
              ...prevOptions,
              xaxis: {
                ...prevOptions.xaxis,
-               categories: teamNames // Set team names as categories
+               categories: teamNames 
              }
            }));
            setSeries(prevSeries => ({
              ...prevSeries,
-             data: points // Set points as data
+             data: points 
            }));
            setChallenges(wargroups.teams);
            setLoading(false);
