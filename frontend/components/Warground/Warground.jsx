@@ -25,7 +25,7 @@ export function Warground(props) {
     return (
         <>
             <div className='bg-black h-100%' style={{ fontFamily: 'hack' }}>
-                <div id="wrap" className='text-white text-center pt-5'>
+                <div id="wrap" className='text-white text-center pt-9'>
                     <div id="glitch" className="text-2xl lg:text-4xl" style={{ fontFamily: 'hack' }}>
                         ☠️ CTF BattleZone ☠️
                     </div>

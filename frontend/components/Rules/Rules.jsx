@@ -29,7 +29,7 @@ export function Rules() {
       <div>
         <div className="mx-auto mt-5 max-w-2xl text-center lg:text-center">
           <div id="wrap">
-              <div id="glitch" className='text-[40px] lg:text-[50px]' data-text="GLITCH" style={{fontFamily:'hack'}}>Guidlines</div> 
+              <div id="glitch" className='text-[40px] lg:text-[50px]' data-text="GLITCH" style={{fontFamily:'hack'}}>Guidelines</div> 
             </div>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-400 lg:mx-auto">
               Welcome to the Capture The Flag (CTF) challenge! Here are the rules you need to follow:
