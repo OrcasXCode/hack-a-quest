@@ -3,6 +3,7 @@ const router = Router();
 const jwt = require("jsonwebtoken");
 const { Team } = require("../db/user");
 const Challenge = require("../db/flag");
+const { Scoreboard } = require("../db/scoreboard");
 const jwtSecret = process.env.JWT_SECRET || "omsureja";
 require("dotenv").config();
 
@@ -120,6 +121,33 @@ router.get("/challenges", async (req, res) => {
 
     return res.status(200).json({
       challenges: filteredChallenges,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      msg: "Internal Server Error",
+    });
+  }
+});
+
+router.get("/getleaderboard", async (req, res) => {
+  try {
+    const teams = await Team.find({}, "teamName points");
+
+    const scoreboardPromises = teams.map(async (team) => {
+      await Scoreboard.create({ teamName: team.teamName, points: team.points });
+    });
+
+    await Promise.all(scoreboardPromises);
+
+    return res.status(200).json({
+      success: true,
+      msg: "Leaderboard initialized successfully",
+      teams: teams.map((team) => ({
+        teamName: team.teamName,
+        points: team.points,
+      })),
     });
   } catch (error) {
     console.log(error);

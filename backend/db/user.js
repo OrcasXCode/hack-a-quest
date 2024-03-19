@@ -51,6 +51,10 @@ const TeamSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    points: {
+      type: String,
+      default: 0,
+    },
     members: [ParticipantSchema],
   },
   { timestamps: true }

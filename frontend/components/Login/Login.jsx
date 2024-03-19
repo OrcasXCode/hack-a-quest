@@ -18,7 +18,7 @@ export function Login() {
           <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
            
             <div id="wrap">
-               <h2  id="glitch" className="text-3xl font-bold leading-tight text-white sm:text-4xl">Sign in</h2>
+               <h2  id="glitch" className="text-3xl font-bold leading-tight text-white sm:text-4xl">Join Team</h2>
             </div>
             <p className="mt-2 text-sm text-gray-200">
              To access the warfare arena, please log in.
@@ -54,7 +54,7 @@ export function Login() {
                   </div>
                 </div>
                 <div>
-                  <button type='button' id="btn-two" class="btn" style={{fontFamily:'hack',marginTop:'30px'}}>Login <ArrowRight className='ml-2' size={16} /></button>
+                  <button type='button' id="btn-two" class="btn" style={{fontFamily:'hack',marginTop:'30px'}}>Let's Go<ArrowRight className='ml-2' size={16} /></button>
                 </div>
               </div>
             </form>
