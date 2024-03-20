@@ -90,7 +90,7 @@ export function Scoreboard(props) {
                 .map((challenge, index) => (
                   <div
                     key={index}
-                    className={`grid grid-cols-3 ${ index === 0 ? 'bg-[#fcc200]' : index === 1 ? 'bg-[#bfc1c2]' : index === 2 ? 'bg-[#836953]' : ''}`}>
+                    className={`grid grid-cols-3 ${ index === 0 ? 'bg-[#ffbb00]' : index === 1 ? 'bg-[#a6a6a6]' : index === 2 ? 'bg-[#894927]' : ''}`}>
                     <div className=' text-l p-4'>{index+1}</div>
                     <div className=' text-l p-4'> {challenge.teamName}</div>
                     <div className=' text-l p-4'>{challenge.points} 💎</div>

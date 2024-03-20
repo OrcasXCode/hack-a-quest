@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink, useLocation} from 'react-router-dom'
 import { useState } from 'react'
 import dyc from "../../src/assets/dyc.png"
 import lpu from "../../src/assets/lpu.png"
@@ -9,7 +9,26 @@ export function Header(){
   const [menuOpen, setMenuOpen] = useState(false);
   const token = localStorage.getItem('jsonwebtoken');
   const closeMenu = () => setMenuOpen(false);
-  const [active,setActive]=useState('home');
+  const location=useLocation();
+  const [active, setActive] = useState(getActiveRoute(location.pathname));
+
+  function getActiveRoute(pathname) {
+    switch (pathname) {
+      case '/':
+        return 'home';
+      case '/rules':
+        return 'rules';
+      case '/resources':
+        return 'resources';
+      case '/warground':
+        return 'warground';
+      case '/scoreboard':
+        return 'scoreboard';
+      default:
+        return '';
+    }
+  }
+
   const handleClick=(option)=>{
     setActive(option);
   }
