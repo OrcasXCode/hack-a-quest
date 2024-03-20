@@ -4,19 +4,18 @@ import { ArrowRight } from 'lucide-react';
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 
-export  function Modal({ title, points, teamId }) { 
+export  function Modal({ title, points }) { 
   const [modal, setModal] = useState(false);
   const [flag, setFlag] = useState("");
   const [id,setId]=useState("");
+  const [completed,setCompleted]=useState(false);
   const storedId = localStorage.getItem('id');
 
    useEffect(() => {
     if (storedId) {
         setId(storedId);
     }
-}, []);
-
-
+  }, []);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -34,6 +33,7 @@ export  function Modal({ title, points, teamId }) {
         const res=await axios.post("http://localhost:3000/user/validflag",dataToSend);
         if(res){
           console.log(res);
+          setCompleted(true);
           toast.success("Success !");
         }
         else{
@@ -51,6 +51,25 @@ export  function Modal({ title, points, teamId }) {
             }
         }
    }
+
+   const checkSolved = async () => {
+      const dataToSend = {
+        teamId: storedId,
+        title: title
+      };
+      try {
+        const res = await axios.get("http://localhost:3000/user/isdone", { data: dataToSend });
+        setCompleted(true);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+
+    useEffect(() => {
+      checkSolved();
+    }, []);
 
   if (modal) {
     document.body.classList.add('active-modal')
@@ -71,7 +90,17 @@ export  function Modal({ title, points, teamId }) {
         <div className="modal">
           <Toaster></Toaster>
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
+          {completed==true ?  <><div className="modal-content">
+            <h2>Completed !</h2>
+            <p>
+              {points}💎 <span className="text-xl text-green-600">+</span>
+            </p>
+            <p>Congratulations! You have successfully captured the flag. Your points have been updated on the scoreboard.
+            </p>
+            <button className="close-modal" onClick={toggleModal}>
+              CLOSE
+            </button>
+          </div></> :  <><div className="modal-content">
             <h2>{title}</h2>
             <p>
               {points}💎
@@ -95,7 +124,7 @@ export  function Modal({ title, points, teamId }) {
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
             </button>
-          </div>
+          </div></>}
         </div>
       )}
     </>

@@ -216,16 +216,13 @@ router.post("/validflag", async (req, res) => {
       });
     }
 
-    // Update team's points
     team.points = parseInt(team.points) + parseInt(challenge.description);
 
-    // Find the challenge within the team's challenges array and update its solved status
     const index = team.challenges.findIndex((c) => c.title === title);
     if (index !== -1) {
       team.challenges[index].solved = true;
     }
 
-    // Save the updated team object
     await team.save();
 
     return res.status(200).json({
@@ -266,9 +263,7 @@ router.get("/isdone", async (req, res) => {
       });
     }
     return res.status(200).json({
-      success: true,
-      isSolved: challenge.solved || false, // Return the solved status, defaulting to false if not found
-      msg: "Challenge status fetched successfully",
+      isSolved: challenge.solved || false,
     });
   } catch (error) {
     console.log(error);
