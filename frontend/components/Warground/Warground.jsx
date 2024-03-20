@@ -24,6 +24,8 @@ export function Warground(props) {
         fetchData();
     }, []);
 
+
+
     return (
         <>
             <div className='bg-black h-100%' style={{ fontFamily: 'hack' }}>
@@ -72,7 +74,6 @@ export function Warground(props) {
                                              <Modal
                                                 title={challenge.title}
                                                 points={challenge.description}
-                                               
                                             />
                                         </div>
                                     </div>

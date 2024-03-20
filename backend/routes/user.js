@@ -216,17 +216,17 @@ router.post("/validflag", async (req, res) => {
       });
     }
 
+    // Update team's points
     team.points = parseInt(team.points) + parseInt(challenge.description);
-    await team.save();
 
-    const index = team.challenges.findIndex(
-      (c) => c.toString() === challenge._id.toString()
-    );
-
+    // Find the challenge within the team's challenges array and update its solved status
+    const index = team.challenges.findIndex((c) => c.title === title);
     if (index !== -1) {
       team.challenges[index].solved = true;
-      await team.save();
     }
+
+    // Save the updated team object
+    await team.save();
 
     return res.status(200).json({
       success: true,
@@ -235,6 +235,44 @@ router.post("/validflag", async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({
+      success: false,
+      msg: "Internal Server Error",
+    });
+  }
+});
+
+router.get("/isdone", async (req, res) => {
+  try {
+    const { teamId, title } = req.body;
+    if (!teamId) {
+      return res.status(400).json({
+        success: false,
+        msg: "Team Id not found",
+      });
+    }
+    const team = await Team.findOne({ teamId: teamId });
+    if (!team) {
+      return res.status(401).json({
+        success: false,
+        msg: "Invalid Team ID",
+      });
+    }
+
+    const challenge = team.challenges.find((c) => c.title == title);
+    if (!challenge) {
+      return res.status(403).json({
+        success: false,
+        msg: "Challenge not found",
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      isSolved: challenge.solved || false, // Return the solved status, defaulting to false if not found
+      msg: "Challenge status fetched successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
       success: false,
       msg: "Internal Server Error",
     });

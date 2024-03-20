@@ -105,3 +105,8 @@ body.active-modal {
     margin-right: 10px;
     height: 30px;
 }
+
+
+#toast-container {
+    z-index: 9999; /* or any other value higher than the z-index of other elements */
+}

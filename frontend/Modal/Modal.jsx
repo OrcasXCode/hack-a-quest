@@ -28,7 +28,9 @@ export  function Modal({ title, points, teamId }) {
           title: title,
           flag : flag
         }
+        let loadingToast;
       try{
+        loadingToast = toast.loading("Verifying Flag");
         const res=await axios.post("http://localhost:3000/user/validflag",dataToSend);
         if(res){
           console.log(res);
@@ -43,6 +45,11 @@ export  function Modal({ title, points, teamId }) {
         console.log(error);
         toast.error("Failed");
       }
+      finally {
+            if (loadingToast) {
+              toast.dismiss(loadingToast); 
+            }
+        }
    }
 
   if (modal) {
