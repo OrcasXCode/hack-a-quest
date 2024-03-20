@@ -41,7 +41,7 @@ export function Warground(props) {
                 ) : (
                     <>
                         <div className='max-w-7xl text-white mx-auto mt-7'>
-                            <div className='p-2 border w-[120px] mt-[150px] text-center mb-5 rounded-full'>Cryptography</div>
+                            <div className='p-2 border w-[120px] mt-[150px] text-center mb-5 rounded-full'>Challenges</div>
                             <div className='text-white  text-center flex flex-wrap gap-6 max-w-7xl'>
                                 {challenges.map((challenge, index) => (
                                     <div key={index} className="w-[300px] rounded-md border">
@@ -50,30 +50,12 @@ export function Warground(props) {
                                                 {challenge.title}
                                             </h1>
                                             <p className="mt-3 text-[25px] text-gray-400">
-                                                {challenge.description}💎
+                                                {challenge.points}💎
                                             </p>
                                              <Modal
                                                 title={challenge.title}
-                                                points={challenge.description}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className='p-2 border w-[200px] mt-[150px]  text-center mb-5 rounded-full'>Reverse Engineering</div>
-                            <div className='text-white  text-center flex flex-wrap gap-6 max-w-7xl'>
-                                {challenges.map((challenge, index) => (
-                                    <div key={index} className="w-[300px] border rounded-md">
-                                        <div className="p-4">
-                                            <h1 className="inline-flex text-white items-center text-[20px] font-semibold">
-                                                {challenge.title}
-                                            </h1>
-                                            <p className="mt-3 text-[25px] text-gray-400">
-                                                {challenge.description}💎
-                                            </p>
-                                             <Modal
-                                                title={challenge.title}
-                                                points={challenge.description}
+                                                description={challenge.description}
+                                                points={challenge.points}
                                             />
                                         </div>
                                     </div>

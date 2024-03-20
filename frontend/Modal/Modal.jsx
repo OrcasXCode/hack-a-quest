@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 
-export  function Modal({ title, points }) { 
+export  function Modal({ title, description,points }) { 
   const [modal, setModal] = useState(false);
   const [flag, setFlag] = useState("");
   const [id,setId]=useState("");
@@ -106,8 +106,7 @@ export  function Modal({ title, points }) {
               {points}💎
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi optio voluptates tempore laudantium
-              necessitatibus amet quas quibusdam quisquam molestias, incidunt autem quod cupiditate mollitia iste perspiciatis harum minima vero suscipit!
+              {description}
             </p>
             <button className="download-button"><a href="demo.zip" download="demo.zip">Download</a></button>
             <div className="flag-submit">
