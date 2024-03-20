@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import axios from "axios";
 import { BarLoader } from 'react-spinners';
+import crown from "../../src/assets/king.png"
 
 export function Scoreboard(props) {
   const [options, setOptions] = useState({
@@ -76,20 +77,25 @@ export function Scoreboard(props) {
           <div className='border-b border-dotted text-2xl p-4' style={{ borderBottomColor: 'red' }}>Teams</div>
           <div className='border-b border-dotted text-2xl p-4' style={{ borderBottomColor: 'red' }}>Points</div>
         </div>
-        <div className='grid text-center grid-cols-1 gap-6 md:grid-cols-1' style={{fontFamily:'hack'}}>
+        <div className='grid text-center grid-cols-1 md:grid-cols-1' style={{fontFamily:'hack'}}>
           {loading ? (
             <div className='text-white text-4xl h-screen max-w-9xl bg-black flex items-center justify-center'>
               <BarLoader color="#ff0000" height={1} width={300} />
             </div>
           ) : (
             <>
-              {challenges.map((challenge, index) => (
-                <div key={index} className='grid grid-cols-3'>
-                  <div className=' text-l p-4'>{index+1}</div>
-                  <div className=' text-l p-4'> {challenge.teamName}</div>
-                  <div className=' text-l p-4'>{challenge.points} 💎</div>
-                </div>
-              ))}
+              {challenges
+                .slice() 
+                .sort((a, b) => b.points - a.points) 
+                .map((challenge, index) => (
+                  <div
+                    key={index}
+                    className={`grid grid-cols-3 ${ index === 0 ? 'bg-[#fcc200]' : index === 1 ? 'bg-[#bfc1c2]' : index === 2 ? 'bg-[#836953]' : ''}`}>
+                    <div className=' text-l p-4'>{index+1}</div>
+                    <div className=' text-l p-4'> {challenge.teamName}</div>
+                    <div className=' text-l p-4'>{challenge.points} 💎</div>
+                  </div>
+                ))}
             </>
           )}
         </div>
