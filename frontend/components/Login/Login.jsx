@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import mask from "../../src/assets/mask.png"
+import axios from "axios"
 
 
 export function Login() {
+ 
+    const [email,setEmail]=useState("");
+    const [teamId,setTeamID]=useState("");
+
+    const handleSubmit=async()=>{
+       const dataToSend={
+          email:email,
+          teamId:teamId
+        }
+      try{
+        const res=await axios.post("http://localhost:3000/user/login",dataToSend);
+        if(res){
+          alert("success");
+          console.log(res);
+          localStorage.setItem("id",JSON.stringify(teamId));
+        }
+        else{
+          alert("failed");
+        }
+      }
+      catch(error){
+        console.log(error);
+      }
+   }
+  
   return (
     <section  style={{fontFamily:'hack'}} className=" relative h-screen bg-black">
        
@@ -32,9 +58,12 @@ export function Login() {
                   </label>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 text-white w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       placeholder="Email"
+                      onChange={(e)=>{
+                        setEmail(e.target.value)
+                      }}
                     ></input>
                   </div>
                 </div>
@@ -47,14 +76,17 @@ export function Login() {
                   </div>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                      type="password"
+                      className="flex h-10 w-full rounded-md text-white border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
                       placeholder="Team Id"
+                      onChange={(e)=>{
+                        setTeamID(e.target.value)
+                      }}
                     ></input>
                   </div>
                 </div>
                 <div>
-                  <button type='button' id="btn-two" class="btn" style={{fontFamily:'hack',marginTop:'30px'}}>Let's Go<ArrowRight className='ml-2' size={16} /></button>
+                  <button type='button' onClick={handleSubmit} id="btn-two" class="btn" style={{fontFamily:'hack',marginTop:'30px'}}>Let's Go<ArrowRight className='ml-2' size={16} /></button>
                 </div>
               </div>
             </form>

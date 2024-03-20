@@ -1,23 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Modal.css";
 import { ArrowRight } from 'lucide-react';
+import axios from "axios";
 
-export default function Modal({ title, points, closeModal }) {
+export default function Modal({ title, points, teamId }) {
   const [modal, setModal] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [flag,setFlag]=useState("");
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value); 
-  };
+  const handleSubmit = async () => {
+    const dataToSend = {
+      flag: flag,
+      title: title,
+      teamId: "363034"
+    };
+    try {
+      const res = await axios.post("http://localhost:3000/user/validflag", dataToSend);
+      if (res) {
+        alert("Success");
+      } else {
+        alert("Failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+};
 
-  const handleSubmit = () => {
-
-    console.log("Submitted value:", inputValue);
-  };
 
   if(modal) {
     document.body.classList.add('active-modal')
@@ -52,8 +63,9 @@ export default function Modal({ title, points, closeModal }) {
               <input
                 type="text"
                 placeholder="Enter flag here..."
-                value={inputValue}
-                onChange={handleInputChange}
+                onChange={(e)=>{
+                  setFlag(e.target.value);
+                }}
                 className="flag"
               />
               <button className="submit-button" onClick={handleSubmit}>Submit</button>

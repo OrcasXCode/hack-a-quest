@@ -6,6 +6,11 @@ import Modal from '../../Modal/Modal';
 export function Warground(props) {
     const [challenges, setChallenges] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [id,setId]=useState("");
+
+    useEffect(() => {
+        setId(localStorage.getItem('id'));
+    }, []);
 
     const fetchData = async () => {
         try {
@@ -58,7 +63,7 @@ export function Warground(props) {
                             </div>
                             <div className='p-2 border w-[200px] mt-[150px]  text-center mb-5 rounded-full'>Reverse Engineering</div>
                             <div className='text-white  text-center flex flex-wrap gap-6 max-w-7xl'>
-                                {challenges.map((challenge, index) => (
+                                {challenges.map((challenge, index,id) => (
                                     <div key={index} className="w-[300px] border rounded-md">
                                         <div className="p-4">
                                             <h1 className="inline-flex text-white items-center text-[20px] font-semibold">
@@ -70,6 +75,7 @@ export function Warground(props) {
                                              <Modal
                                                 title={challenge.title}
                                                 points={challenge.description}
+                                                teamId={id}
                                             />
                                         </div>
                                     </div>
