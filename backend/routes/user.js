@@ -184,6 +184,13 @@ router.post("/validflag", async (req, res) => {
   try {
     const { teamId, title, flag } = req.body;
 
+    if (!teamId) {
+      return res.status(401).json({
+        success: false,
+        msg: "Team ID not found",
+      });
+    }
+
     const team = await Team.findOne({ teamId: teamId });
 
     if (!team) {
@@ -209,11 +216,9 @@ router.post("/validflag", async (req, res) => {
       });
     }
 
-    // If the flag is correct, update the points in the team schema
     team.points = parseInt(team.points) + parseInt(challenge.description);
     await team.save();
 
-    // Mark the challenge as solved for the team
     const index = team.challenges.findIndex(
       (c) => c.toString() === challenge._id.toString()
     );

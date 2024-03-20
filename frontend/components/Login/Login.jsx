@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import mask from "../../src/assets/mask.png"
 import axios from "axios"
+import {toast,Toaster} from "react-hot-toast"
 
 
 export function Login() {
@@ -17,29 +18,27 @@ export function Login() {
       try{
         const res=await axios.post("http://localhost:3000/user/login",dataToSend);
         if(res){
-          alert("success");
-          console.log(res);
-          localStorage.setItem("id",JSON.stringify(teamId));
+          localStorage.setItem('id', teamId);
+          toast.success("Success !");
         }
         else{
-          alert("failed");
+          toast.error("Failed");
         }
       }
       catch(error){
-        console.log(error);
+        toast.error("Failed");
       }
    }
   
   return (
     <section  style={{fontFamily:'hack'}} className=" relative h-screen bg-black">
-       
+       <Toaster></Toaster>
       <div className=" grid grid-cols-1 lg:grid-cols-2">
         <img
             className=" h-[200px] ml-[100px] w-[200px] sm:mx-auto  lg:h-[500px] lg:w-[500px] rounded-md object-cover lg:ml-[150px]"
             src={mask}
             alt=""
         />
-
         <div className="flex items-center justify-center  px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
            
