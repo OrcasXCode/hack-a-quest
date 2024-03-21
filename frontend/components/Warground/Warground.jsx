@@ -11,7 +11,7 @@ export function Warground(props) {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/user/challenges");
+            const response = await axios.get("http://ec2-16-171-56-42.eu-north-1.compute.amazonaws.com/challenges");
             const wargroups = response.data;
             setChallenges(wargroups.challenges);
             setLoading(false);
