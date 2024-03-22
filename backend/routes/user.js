@@ -80,7 +80,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Volatile Vault ",
+        title: "Volatile Vault",
         description:
           "Can you crack the code to access the volatile vault? This crypto challenge will test your decryption skills. Be quick, the vault's security measures are constantly shifting! ",
         correctAnswer: "example_flag",
@@ -88,7 +88,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Get heist ",
+        title: "Get heist",
         description:
           "Operation: Ghost. Infiltrate ACME's vault. Bypass defenses, steal data. Become a ghost, not a glitch. Think you're in? ",
         correctAnswer: "c7f93n_Y0U_607_Me",
@@ -96,7 +96,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Answer_me ",
+        title: "Answer_me",
         description:
           "Infiltrate ACME's data fortress like a phantom. Weave through firewalls, crack passwords. Download the flag before dawn. One wrong step and you're a digital ghost ",
         correctAnswer: "Questions & Answers.txt ",
@@ -104,7 +104,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Sound-Pollution ",
+        title: "Sound-Pollution",
         description:
           "The airwaves are buzzing with more than just noise.  A secret message, encoded within the static, awaits those with sharp ears and a knack for deciphering hidden signals.  Can you crack the code and make the hidden flag sing loud and clear? ",
         correctAnswer: "smile_and_wav_boys",
@@ -112,7 +112,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "TCP ",
+        title: "TCP",
         description:
           "Think you're a master network observer? In this challenge, you'll need to leverage your packet sniffing skills to capture the handshake and extract the hidden flag during this digital exchange. Can you exploit this network protocol to claim your prize? ",
         correctAnswer: "34_5137_5_6_7",
@@ -120,7 +120,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Electric eel ",
+        title: "Electric eel",
         description:
           "In this electrifying challenge, become the Electric Eel, silently slithering through the data stream.  Your task: Sniff out valuable packets and extract the hidden flag before it gets encrypted.  But be careful, getting caught could send a jolt through your entire operation! ",
         correctAnswer: "pkT_c4ptur3D",
@@ -136,7 +136,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "look_into_something ",
+        title: "look_into_something",
         description:
           "Delve into a distorted reflection of reality to find the flag. ",
         correctAnswer: "8.8.8.8_google_192.168.1.254",
@@ -152,7 +152,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "stop-drop-and-roll ",
+        title: "stop-drop-and-roll",
         description:
           "This ain't your typical CTF. Expect the unexpected!  Think outside the box to conquer this unique challenge. ",
         correctAnswer: "HTB{1_wiLl_sT0p_dR0p_4nD_r0Ll_mY_w4Y_oUt!}",
@@ -168,7 +168,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Game of thrones ",
+        title: "Game of thrones",
         description:
           "Game of Thrones: Inspired by the legendary saga, this team embodies strategic mastery and cunning tactics, ready to conquer the challenges of the cybersecurity realm just like the characters of Westeros. ",
         correctAnswer: "CTF{odin was here} ",
@@ -176,7 +176,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Illumanti ",
+        title: "Illumanti",
         description:
           "A shadowy force wielding unparalleled expertise in cybersecurity challenges, this team operates with precision and strategic mastery, just like the enigmatic organization they are named after.  ",
         correctAnswer: "CTF{mortylikessnakejazz} ",
@@ -184,7 +184,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "solver ",
+        title: "solver",
         description:
           "A name synonymous with unraveling complexity in the cybersecurity realm. Armed with intellect and finesse, they dissect challenges with precision, emerging victorious from every cryptic encounter. ",
         correctAnswer: "CTF{EasY-RS4} ",
@@ -192,7 +192,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Nice_pants ",
+        title: "Nice_pants",
         description:
           "This team exudes confidence and style, just like their name suggests. With a dash of humor and a whole lot of skill, they tackle cybersecurity challenges with flair and finesse, leaving their mark on the competition while rocking those metaphorical nice pants. ",
         correctAnswer: "CTF{thankyouhacker}  ",
@@ -200,7 +200,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "salad ",
+        title: "salad",
         description:
           "A puzzling name for a team that thrives on complexity. Like a mix of unexpected ingredients, they approach cybersecurity challenges with a blend of diverse skills and tactics, leaving their opponents guessing at every turn. ",
         correctAnswer: "flag{s4l4d_m4k3s_m3_s4d}  ",
@@ -208,7 +208,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "challenging ",
+        title: "challenging",
         description:
           "the relentless pursuit of unraveling the intricacies of reverse engineering. Like intrepid explorers navigating uncharted territories, they fearlessly delve into the depths of code, conquering each cryptic obstacle with determination and expertise. ",
         correctAnswer: "CTF{Ar@b1an_night5} ",
@@ -216,7 +216,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "clubing ",
+        title: "clubing",
         description:
           "In a tech-driven city, Alex discovers The Clubing, a secretive group of hackers. Mastering reverse engineering alongside mentors Elena and Marcus, they become formidable. But when hunted by powerful foes, they unite to defend their underground haven. In the end, they emerge victorious, ready for new challenges ahead. ",
         correctAnswer: "ctf{eXclU51v3_0r^N0t?} ",
@@ -224,7 +224,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Hack_me_oppa ",
+        title: "Hack_me_oppa",
         description:
           "In the neon-lit streets of Tokyo, Hack_me_oppa emerges as a digital samurai, wielding code like a katana. With the precision of a bonsai master, they navigate cyberspace, blending ancient wisdom with modern technology. In this cybernetic dojo, they honor the code of the hacker with every keystroke.  ",
         correctAnswer: "CTF{3z_Drunk_R3v}  ",
@@ -232,7 +232,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "Introduction  ",
+        title: "Introduction",
         description:
           "In the land of the rising sun, Introduction is a digital sensei, guiding newcomers through the labyrinth of cyberspace with the wisdom of ancient scrolls. With each byte, they weave a tale of mastery, blending tradition with innovation in the art of cybersecurity.  ",
         correctAnswer: "CTF{steppingstone}  ",
@@ -240,7 +240,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "saveyoursanity  ",
+        title: "saveyoursanity",
         description:
           "With each encrypted message decoded and every vulnerability patched, they safeguard the sanity of users, ensuring tranquility in a world of digital chaos.  ",
         correctAnswer: "ctf{It_h4s_b33N_345Y}  ",
@@ -248,7 +248,7 @@ router.get("/challenges", async (req, res) => {
         solved: false,
       },
       {
-        title: "you_need_key  ",
+        title: "you_need_key",
         description:
           "Like a hidden treasure waiting to be unearthed, this enigmatic key holds the power to unlock hidden doors and reveal the secrets of the digital domain. Brave adventurers seek its elusive grasp, knowing that behind every locked gate lies a new challenge waiting to be conquered.  ",
         correctAnswer: "CTF{Never_stop_learning} ",

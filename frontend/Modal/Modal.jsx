@@ -108,7 +108,48 @@ export  function Modal({ title, description,points }) {
             <p>
               {description}
             </p>
-            <button className="download-button"><a href="demo.zip" download="demo.zip">Download</a></button>
+            {title === "Conundrum" && (
+              <button className="download-button">
+                <a href="Conundrum.rar" download="Conundrum.rar">
+                  Download
+                </a>
+              </button>
+            )}
+            {title === "Game of thrones" && (
+              <button className="download-button">
+                <a href="Game of thrones.rar" download="Game of thrones.rar">
+                  Download
+                </a>
+              </button>
+            )}
+            {title === "Illumanti" && (
+              <button className="download-button">
+                <a href="illuminati.rar" download="illuminati.rar">
+                  Download
+                </a>
+              </button>
+            )}
+            {title === "Nice_pants" && (
+              <button className="download-button">
+                <a href="Nice_pants.rar" download="Nice_pants.rar">
+                  Download
+                </a>
+              </button>
+            )}
+            {title === "salad" && (
+              <button className="download-button">
+                <a href="salad.rar" download="salad.rar">
+                  Download
+                </a>
+              </button>
+            )}
+            {title === "solver" && (
+              <button className="download-button">
+                <a href="solver.rar" download="solver.rar">
+                  Download
+                </a>
+              </button>
+            )}
             <div className="flag-submit">
               <input
                 type="text"
